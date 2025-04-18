@@ -4,6 +4,9 @@ import DropdownSettings from '@/components/common/DropdownSettings'
 import dynamic from 'next/dynamic'
 import React from 'react'
 import { useState } from 'react';
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
+import VehicleMarkers from '@/components/common/VehicleMarkers';
 
 // ✅ dynamic import แทนการ import ตรง
 const MapLeaflet = dynamic(() => import('@/components/common/MapLeaflet'), {
@@ -13,16 +16,16 @@ const MapLeaflet = dynamic(() => import('@/components/common/MapLeaflet'), {
 
 const Page = () => {
   const [redOpen, setRedOpen] = useState(true);
+  const [yellowOpen, setYellowOpen] = useState(true);
   return (
-    <div className="relative h-screen w-full">
+    <div className="relative h-screen  w-full">
       {/* ✅ ส่วนที่ลอยอยู่ด้านบนซ้ายของ Map */}
-      <div className="absolute top-4 right-4 z-50">
-        <DropdownSettings setRedOpen={setRedOpen}/>
+      <div className="absolute right-0 z-50">
+        <DropdownSettings setRedOpen={setRedOpen} setYellowOpen={setYellowOpen}/>
       </div>
-
       {/* ✅ Map เต็มหน้าจอ */}
       <div className="absolute inset-0 z-10">
-        <MapLeaflet redOpen ={redOpen}/>
+        <MapLeaflet redOpen ={redOpen} yellowOpen = {yellowOpen}/>
       </div>
     </div>
   )

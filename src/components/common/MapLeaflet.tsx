@@ -8,9 +8,12 @@ import 'leaflet/dist/leaflet.css';
 import iconUrl from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import CustomMarker from './CustomMarker';
+import VehicleMarkers from './VehicleMarkers';
+
 
 interface MapLeafletProps {
   redOpen: boolean;
+  yellowOpen: boolean;
 }
 
 interface Location {
@@ -19,7 +22,7 @@ interface Location {
   urlicon: string;
 }
 
-const MapLeaflet: React.FC<MapLeafletProps> = ({ redOpen }) => {
+const MapLeaflet: React.FC<MapLeafletProps> = ({ redOpen, yellowOpen }) => {
   const [locationsRed, setLocationsRed] = useState<Location[]>([]);
   const [locationsYellow, setLocationsYellow] = useState<Location[]>([]);
   useEffect(() => {
@@ -80,9 +83,12 @@ const MapLeaflet: React.FC<MapLeafletProps> = ({ redOpen }) => {
           <CustomMarker key={idx} position={loc.position} text={loc.name} urlicon={loc.urlicon} />
         ))
       }
-      {locationsYellow.map((loc, idx) => (
-        <CustomMarker key={`yellow-${idx}`} position={loc.position} text={loc.name} urlicon={loc.urlicon} />
-      ))}
+      {yellowOpen &&
+        locationsYellow.map((loc, idx) => (
+          <CustomMarker key={`yellow-${idx}`} position={loc.position} text={loc.name} urlicon={loc.urlicon} />
+        ))
+      }
+      <VehicleMarkers/>
     </MapContainer>
   );
 };
