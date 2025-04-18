@@ -4,7 +4,6 @@ import { Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 
 
-
 const CustomMarker = ({ position, text, urlicon }: { position: [number, number], text: string, urlicon: string }) => {
     const customIcon = L.icon({
         iconUrl: urlicon,
