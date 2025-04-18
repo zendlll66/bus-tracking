@@ -9,7 +9,8 @@ import iconUrl from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import CustomMarker from './CustomMarker';
 import VehicleMarkers from './VehicleMarkers';
-
+import { Polyline } from 'react-leaflet';
+import ArrowLine from './ArrowLine';
 
 interface MapLeafletProps {
   redOpen: boolean;
@@ -22,6 +23,11 @@ interface Location {
   urlicon: string;
 }
 
+const roadPath: [number, number][] = [
+  [16.7446, 100.1946],
+  [16.7450, 100.1965],
+  [16.7462, 100.1977],
+];
 const MapLeaflet: React.FC<MapLeafletProps> = ({ redOpen, yellowOpen }) => {
   const [locationsRed, setLocationsRed] = useState<Location[]>([]);
   const [locationsYellow, setLocationsYellow] = useState<Location[]>([]);
@@ -88,7 +94,8 @@ const MapLeaflet: React.FC<MapLeafletProps> = ({ redOpen, yellowOpen }) => {
           <CustomMarker key={`yellow-${idx}`} position={loc.position} text={loc.name} urlicon={loc.urlicon} />
         ))
       }
-      <VehicleMarkers/>
+      <VehicleMarkers />
+      <ArrowLine positions={roadPath} />
     </MapContainer>
   );
 };
