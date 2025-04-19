@@ -17,15 +17,18 @@ const MapLeaflet = dynamic(() => import('@/components/common/MapLeaflet'), {
 const Page = () => {
   const [redOpen, setRedOpen] = useState(true);
   const [yellowOpen, setYellowOpen] = useState(true);
+  const [redLineOpen, setRedLineOpen] = useState(false); // เส้นทางแดง
+  const [yellowLineOpen, setYellowLineOpen] = useState(false); // เส้นทางเหลือง
   return (
     <div className="relative h-screen  w-full">
       {/* ✅ ส่วนที่ลอยอยู่ด้านบนซ้ายของ Map */}
       <div className="absolute right-0 z-50">
-        <DropdownSettings setRedOpen={setRedOpen} setYellowOpen={setYellowOpen}/>
+        <DropdownSettings setRedOpen={setRedOpen} setYellowOpen={setYellowOpen} setRedLineOpen={setRedLineOpen}
+          setYellowLineOpen={setYellowLineOpen} />
       </div>
       {/* ✅ Map เต็มหน้าจอ */}
       <div className="absolute inset-0 z-10">
-        <MapLeaflet redOpen ={redOpen} yellowOpen = {yellowOpen}/>
+        <MapLeaflet redOpen={redOpen} yellowOpen={yellowOpen} redLineOpen={redLineOpen} yellowLineOpen={yellowLineOpen} />
       </div>
     </div>
   )

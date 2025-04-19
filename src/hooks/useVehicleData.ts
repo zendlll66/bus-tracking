@@ -16,6 +16,10 @@ export const useVehicleData = () => {
     };
 
     getData();
+    const interval = setInterval(getData, 5000);
+
+    // ✅ ต้อง return จาก useEffect เพื่อ cleanup
+    return () => clearInterval(interval);
   }, []);
 
   return vehicles;

@@ -8,9 +8,10 @@ import L from 'leaflet';
 
 interface ArrowLineProps {
   positions: [number, number][];
+  color: string;
 }
 
-const ArrowLine: React.FC<ArrowLineProps> = ({ positions }) => {
+const ArrowLine: React.FC<ArrowLineProps> = ({ positions ,color}) => {
   const map = useMap();
 
   useEffect(() => {
@@ -22,7 +23,7 @@ const ArrowLine: React.FC<ArrowLineProps> = ({ positions }) => {
           symbol: (L as any).Symbol.arrowHead({
             pixelSize: 10,
             polygon: false,
-            pathOptions: { stroke: true, color: '#FF0000' },
+            pathOptions: { stroke: true, color: color },
           }),
         },
       ],

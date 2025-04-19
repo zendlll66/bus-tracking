@@ -9,21 +9,21 @@ import { Vehicle } from '@/types/vehicle';
 const redIcon = new L.Icon({
   iconUrl: '/assets/bus-icon-red.svg',
   iconSize: [32, 32],
-  iconAnchor: [16, 32],
+  iconAnchor: [25, 32],
   popupAnchor: [0, -32],
 });
 
 const yellowIcon = new L.Icon({
   iconUrl: '/assets/bus-icon-yellow.svg',
   iconSize: [32, 32],
-  iconAnchor: [16, 32],
+  iconAnchor: [25, 32],
   popupAnchor: [0, -32],
 });
 
 const blueIcon = new L.Icon({
   iconUrl: '/assets/bus-icon-Blue.svg',
   iconSize: [32, 32],
-  iconAnchor: [16, 32],
+  iconAnchor: [25, 32],
   popupAnchor: [0, -32],
 });
 
