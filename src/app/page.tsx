@@ -4,9 +4,7 @@ import DropdownSettings from '@/components/common/DropdownSettings'
 import dynamic from 'next/dynamic'
 import React from 'react'
 import { useState } from 'react';
-import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import VehicleMarkers from '@/components/common/VehicleMarkers';
 
 // ✅ dynamic import แทนการ import ตรง
 const MapLeaflet = dynamic(() => import('@/components/common/MapLeaflet'), {
