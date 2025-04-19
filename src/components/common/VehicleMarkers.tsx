@@ -14,7 +14,7 @@ const redIcon = new L.Icon({
 });
 
 const yellowIcon = new L.Icon({
-  iconUrl: '/assets/bus-icon-yellow.svg',
+  iconUrl: '/assets/bus-icon-Yellow.svg',
   iconSize: [32, 32],
   iconAnchor: [25, 32],
   popupAnchor: [0, -32],
